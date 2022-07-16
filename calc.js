@@ -43,8 +43,7 @@ var app = new Vue({
     },
 
     inputBtn(e) {
-      this.input = e.currentTarget.innerText.replace(/\r?\n/g,"");
-      this.debug=this.input;
+      this.input = e.currentTarget.innerText;
       this.checkInput();
     },
 
@@ -52,7 +51,6 @@ var app = new Vue({
       if (this.result != "") {
         this.clearResult();
       }
-
       // 最初の入力はマイナスか数字のみ入力可能
       if (this.formulaArr.length == 0) {
         if (this.input == "－" || Number(this.input) || this.input == 0) {
@@ -152,6 +150,8 @@ var app = new Vue({
     calcNum() {
       const temp = [];
       // ✕÷の位置を検索してtempに追加
+      console.log(this.formulaArr)
+      this.debug=this.formulaArr;
       for (let i = 1; i < this.formulaArr.length; i += 1) {
         if (this.formulaArr[i] == "×" || this.formulaArr[i] == "÷") temp.push(i);
       }
