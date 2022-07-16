@@ -8,7 +8,7 @@ Vue.jsの練習を兼ねて作成しました。
 
 ## URL
 
-https://hirotada-t.github.io/CalculationApp/
+https://nori-ut3g.github.io/CalcApp_by_Hirotada/
 
 ## Usage
 
