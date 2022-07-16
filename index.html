@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>CalcApp</title>
+
+    <!-- Vue.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/5c95c5fc96.js" crossorigin="anonymous"></script>
+    <script src="./calc.js" defer></script>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+    <div id="app" class="outer">
+        <div class="waku py-4">
+            <div class="container pt-1 waku_calcArea">
+                <h4>{{formulaStr}}</h4>
+                <h1 class="text-end">{{result}}</h1>
+            </div>
+            <div class="container pt-1 waku_calcArea">
+                <h4>{{debug}}</h4>
+            </div>
+
+            <div id="inputBtns" class="container buttons pt-4">
+                <div class="row gy-3 gx-0">
+                    <div class="col-9">
+                        <div class="flexDirection row gy-3 gx-0">
+                            <div class="col-4 text-center" v-for="num of nums">
+                                <a class="btnStyling" @click="inputBtn($event)">
+                                    <span class="btnStyling-front">{{num}}</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="flexDirection row gy-3 gx-0 mt-0">
+                            <div class="col-8 text-center functions">
+                                <a class='equal' @click="checkFormula">
+                                    <span class="btnStyling-front">=</span>
+                                </a>
+                            </div>
+                            <div class="col-4 text-center">
+                                <a class="btnStyling" @click="inputBtn($event)">
+                                    <span class="btnStyling-front">0</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3 border-start border-light border-2">
+                        <div class="signs row gy-3 gx-0 mx-auto">
+                            <div class="col-12 text-center" v-for="(value, key) of signs">
+                                <a class="btnStyling" @click="inputBtn($event)">
+                                    <span class="btnStyling-front">{{key}}</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="container buttons pt-4">
+                <div class="signs row gy-3 gx-0">
+                    <div class="col-3 text-center">
+                        <button class="btn btn-success btn-lg rounded-circle w-120 border-0 p-0" type="button"
+                        @click="bsFormula">sin</button>
+                    </div>
+                    <div class="col-3 text-center">
+                        <button class="btn btn-success btn-lg rounded-circle w-120 border-0 p-0" type="button"
+                        @click="bsFormula">cos</button>
+                    </div>
+                    <div class="col-3 text-center">
+                        <button class="btn btn-success btn-lg rounded-circle w-120 border-0 p-0" type="button"
+                        @click="bsFormula">tan</button>
+                    </div>
+                </div>
+            </div> -->
+
+            <div class="container buttons pt-4">
+                <div class="row gy-3 gx-0">
+                    <div id="BSbtn" class="col-6 text-center">
+                        <a class="bs" @click="bsFormula">
+                            <span class="btnStyling-front">BS</span>
+                        </a>
+                    </div>
+                    <div class="col-6 text-center">
+                        <a class="cl" @click="clearResult">
+                            <span class="btnStyling-front">CL</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
