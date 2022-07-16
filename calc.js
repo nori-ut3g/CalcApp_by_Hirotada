@@ -43,7 +43,7 @@ var app = new Vue({
     },
 
     inputBtn(e) {
-      this.input = e.currentTarget.innerText;
+      this.input = e.currentTarget.textContent;
       this.checkInput();
     },
 
