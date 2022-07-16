@@ -43,7 +43,7 @@ var app = new Vue({
     },
 
     inputBtn(e) {
-      this.input = e.currentTarget.textContent;
+      this.input = e.currentTarget.innerText.replace(/\r?\n/g,"");
       this.checkInput();
     },
 
